@@ -1,0 +1,6 @@
+#Libraries Required
+requests
+datetime
+beautifulsoup4
+schedule
+discord-webhook
