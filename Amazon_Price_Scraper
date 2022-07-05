@@ -15,7 +15,7 @@ import schedule
 #url = "enter amazon.in product url here"
 
 #specify user agent below. can be traced via google
-HEADERS = {"User-Agent":"Enter user agent here"}
+#HEADERS = {"User-Agent":"Enter user agent here"}
 
 # declaring and initialising variables outside the function so that they can be used later whenever needed.
 product_title = None
