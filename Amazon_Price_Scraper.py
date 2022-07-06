@@ -1,5 +1,7 @@
+import config
 import json
 import random
+from types import NoneType
 from bs4 import BeautifulSoup
 import requests
 from discord_webhook import DiscordWebhook, DiscordEmbed
@@ -7,15 +9,6 @@ import datetime
 import time
 import schedule
 
-# specify discord webhook url below
-#webhook_url = "enter webhook here"
-
-
-#specify amazon product url below
-#url = "enter amazon.in product url here"
-
-#specify user agent below. can be traced via google
-#HEADERS = {"User-Agent":"Enter user agent here"}
 
 # declaring and initialising variables outside the function so that they can be used later whenever needed.
 product_title = None
@@ -29,7 +22,7 @@ def get_price():
     global price
 
 #requesting the contents of the amazon url specified earlier
-    page = requests.get(url, headers=HEADERS)
+    page = requests.get(config.product_url, headers=config.HEADERS)
 
 #making an instance of beautiful soup, which is a python library to parse HTML/XML documents.
     soup = BeautifulSoup(page.content, 'lxml')
@@ -56,14 +49,14 @@ print(price)
 
 #creating another function to post the price and product details that been scraped from Amazon via the above function, to post messages to discord channels using embeds & webhooks.
 def m1_air():
-    if price < 92900:
-        webhook = DiscordWebhook(url=webhook_url)
+    if price < 93900:
+        webhook = DiscordWebhook(url=config.webhook_url)
         embed = DiscordEmbed(description=product_title, color= random.randint(0, 0xffffff))
-        embed.set_author(name="Price Drop ALERT!!!!", icon_url='https://c.tenor.com/8vSJsVW-1pQAAAAj/police-car-light-joypixels.gif')
+        embed.set_author(name="Price Drop ALERT!!!!", icon_url=config.icon_url)
         embed.set_footer(text="Notifed at:")
         embed.set_timestamp()
-        embed.set_thumbnail(url='https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/macbook-air-gallery3-20201110?wid=2000&hei=1536&fmt=jpeg&qlt=95&.v=1632937845000')
-        embed.add_embed_field(name='Click Link To Buy:', value=url)
+        embed.set_thumbnail(url=config.thumbnail_url)
+        embed.add_embed_field(name='Click Link To Buy:', value=config.product_url)
         embed.add_embed_field(name='Price:', value= f"INR {price}")
         webhook.add_embed(embed)
         response = webhook.execute()
@@ -72,9 +65,9 @@ def m1_air():
 
 
 
-# m1_air()
+m1_air()
 
-#scheduling the two functions to run at specified times/intervals.
+#scheduling the two functions to run at specified times/intervals
 schedule.every(30).minutes.do(get_price)
 schedule.every(31).minutes.do(m1_air)
 
