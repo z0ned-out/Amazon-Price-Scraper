@@ -21,7 +21,7 @@ def get_price():
     global product_title
     global price
 
-#requesting the contents of the amazon url specified earlier
+#requesting the contents of the amazon url specified in the config py
     page = requests.get(config.product_url, headers=config.HEADERS)
 
 #making an instance of beautiful soup, which is a python library to parse HTML/XML documents.
