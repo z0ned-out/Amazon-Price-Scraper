@@ -49,7 +49,7 @@ print(price)
 
 #creating another function to post the price and product details that been scraped from Amazon via the above function, to post messages to discord channels using embeds & webhooks.
 def m1_air():
-    if price < 93900:
+    if price < 92900:
         webhook = DiscordWebhook(url=config.webhook_url)
         embed = DiscordEmbed(description=product_title, color= random.randint(0, 0xffffff))
         embed.set_author(name="Price Drop ALERT!!!!", icon_url=config.icon_url)
