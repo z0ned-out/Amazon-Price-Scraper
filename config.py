@@ -1,5 +1,5 @@
 # specify discord webhook url below
-webhook_url = "https://discord.com/api/webhooks/993701834155900938/yv-aLBqUKuZKeaLud8tCQu7lrcFak8ig7Z9Z6BYQ2Ew-EjiVPqKZa1q4NYNTgHLtgCXM"
+webhook_url = "enter discord webhook url here"
 
 
 #specify amazon product url below
