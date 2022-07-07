@@ -4,7 +4,7 @@ Fetches product title & price from Amazon, and posts them to discord via webhook
 
 Please note that it has only been tried for Amazon.in thus far. 
 
-Please make changes to config.py accordingly.
+Please make changes to ```config.py``` file accordingly.
 
 To make use of the script:
 1. Clone this repository.
