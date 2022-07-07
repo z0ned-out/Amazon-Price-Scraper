@@ -5,6 +5,9 @@ webhook_url = "https://discord.com/api/webhooks/993701834155900938/yv-aLBqUKuZKe
 #specify amazon product url below
 product_url = "https://www.amazon.in/gp/product/B08N5XSG8Z/ref=ewc_pr_img_1?smid=A14CZOWI0VEHLG&psc=1"
 
+#specify the price below which you are comfortable buying the product
+x = 92900
+
 #specify user agent below. can be traced via google
 HEADERS = {"User-Agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"}
 
